@@ -1,0 +1,24 @@
+-- CREATE STORE DATABASE
+CREATE TABLE storeitems (id INTEGER, name TEXT, quantity INTEGER, price INTEGER, size TEXT);
+
+INSERT INTO storeitems VALUES (1, "shirt", 1, 20, "Small");
+INSERT INTO storeitems VALUES (2, "shirt", 2, 30, "Large");
+INSERT INTO storeitems VALUES (3, "skirt", 1, 40, "Medium");
+INSERT INTO storeitems VALUES (4, "shorts", 3, 60, "Small");
+INSERT INTO storeitems VALUES (5, "scarf", 1, 10, "Universal");
+INSERT INTO storeitems VALUES (6, "pants", 3, 80, "Medium");
+INSERT INTO storeitems VALUES (7, "hat", 3, 30, "Universal");
+INSERT INTO storeitems VALUES (8, "shoes", 1, 30, "Small");
+INSERT INTO storeitems VALUES (9, "necklace", 4, 40, "Universal");
+INSERT INTO storeitems VALUES (10, "earrings", 3, 20, "Universal");
+INSERT INTO storeitems VALUES (11, "rings", 1, 10, "Universal");
+INSERT INTO storeitems VALUES (12, "bras", 3, 80, "Medium");
+INSERT INTO storeitems VALUES (13, "pants", 1, 30, "Large");
+INSERT INTO storeitems VALUES (14, "sunglasses", 3, 60, "Universal");
+INSERT INTO storeitems VALUES (15, "shirt", 1, 20, "Large");
+
+--DISPLAYS AMOUNT OF EACH ITEM IN LIST
+SELECT name, SUM(quantity) FROM storeitems GROUP BY name;
+
+--DISPLAY THE DATABASE ORDERED BY PRICE
+SELECT * FROM storeitems ORDER BY price desc;
