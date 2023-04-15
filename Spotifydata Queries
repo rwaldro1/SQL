@@ -1,0 +1,48 @@
+SELECT * FROM Spotifydata;
+
+SELECT * FROM BIT_DB.Spotifydata;
+
+-- Show top 10 most popular tracks
+SELECT track_name, artist_name, popularity 
+FROM Spotifydata 
+ORDER BY popularity DESC 
+LIMIT 10;
+
+-- Show the number of tracks in the dataset byy artist
+SELECT artist_name, COUNT(*) as num_of_tracks 
+FROM Spotifydata 
+GROUP BY artist_name 
+ORDER BY num_of_tracks DESC;
+
+-- Show the average energy and danceability for each artist
+SELECT artist_name, AVG(energy) AS avg_energy, AVG(danceability) AS avg_danceability 
+FROM Spotifydata 
+GROUP BY artist_name;
+
+-- Show the top 5 artists with the highest average loudness
+SELECT artist_name, AVG(loudness) as avg_loudness 
+FROM Spotifydata 
+GROUP BY artist_name 
+ORDER BY avg_loudness DESC 
+LIMIT 5;
+
+--Show the number of tracks by song mode
+SELECT song_mode, COUNT(*) AS num_of_tracks 
+FROM Spotifydata 
+GROUP BY song_mode;
+
+--Show the average tempo and duration for tracks with a danceability score higher that 0.8
+SELECT AVG(tempo) AS avg_tempo, AVG(duration_ms) AS avg_duration 
+FROM Spotifydata 
+WHERE danceability > 0.8;
+
+-- Show the top 10 most positive tracks (highest valence)
+SELECT track_name, artist_name, valence 
+FROM Spotifydata 
+ORDER BY valence DESC 
+LIMIT 10;
+
+-- Show the number of tracks in each time signature
+SELECT time_signature, COUNT(*) AS num_of_tracks 
+FROM Spotifydata 
+GROUP BY time_signature;
